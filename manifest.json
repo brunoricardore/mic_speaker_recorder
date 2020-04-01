@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Easy Health Recorder",
+  "description": "Easy Health Recorder",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "desktopCapture",
+    "activeTab",
+    "tabs",
+    "storage",
+    "downloads"
+  ],
+  "background" : {
+    "scripts": [
+      "getUserMedia.js",
+      "main.js",
+      "runtimePort.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://easy-health.app/*"
+      ],
+      "js": ["index.js"]
+    }
+  ]
+}
